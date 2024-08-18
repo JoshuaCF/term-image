@@ -1,0 +1,4 @@
+#!/bin/bash
+
+FILES=$(find ./src -name "*.c")
+clang -g -O0 $FILES -o ./bin/term_image -Isrc/headers/ 
