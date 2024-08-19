@@ -79,9 +79,10 @@ int loadPPM(const char* filename, struct Image* imageOut) {
 	// Read color data
 	for (unsigned int y = 0; y < height; y++) {
 		for (unsigned int x = 0; x < width; x++) {
-			fread(&imageOut->data[y*width + x].r, 1, 1, file);
-			fread(&imageOut->data[y*width + x].g, 1, 1, file);
-			fread(&imageOut->data[y*width + x].b, 1, 1, file);
+			imageOut->data[y*width + x].transparent = false;
+			fread(&imageOut->data[y*width + x].col.r, 1, 1, file);
+			fread(&imageOut->data[y*width + x].col.g, 1, 1, file);
+			fread(&imageOut->data[y*width + x].col.b, 1, 1, file);
 		}
 	}
 	
